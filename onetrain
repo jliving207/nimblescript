@@ -1,6 +1,8 @@
 #! /bin/bash
 
-# read-p "What would you like to name your wallet?" wallet_name;
+echo What would you like your wallet addy to be ya miner?;
+
+read wallet_address;
 
 apt update;
 
@@ -22,7 +24,7 @@ cd;
 
 cd go/bin;
 
-#./nimble-networkd keys add $wallet_name;
+./nimble-networkd keys add $wallet_address > $HOME/nimble/secret_${wallet_address}.txt;
 
 apt update;
 
