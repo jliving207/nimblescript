@@ -1,6 +1,6 @@
 #! /bin/bash
 
-read-p "What would you like to name your wallet?" wallet_name;
+# read-p "What would you like to name your wallet?" wallet_name;
 
 apt update;
 
@@ -22,7 +22,7 @@ cd;
 
 cd go/bin;
 
-./nimble-networkd keys add $wallet_name;
+#./nimble-networkd keys add $wallet_name;
 
 apt update;
 
