@@ -1,20 +1,20 @@
 #! /bin/bash
 
-echo What would you like your wallet addy to be ya miner?;
+echo Choose your public nimble address you want to mine with?;
 
 read wallet_address;
 
 apt update;
 
-wget -c https://go.dev/dl/go1.22.0.linux-amd64.tar.gz;
+: ' wget -c https://go.dev/dl/go1.22.0.linux-amd64.tar.gz;
 
 tar -C /usr/local/ -xzf go1.22.0.linux-amd64.tar.gz;
 
-PATH=$PATH:/usr/local/go/bin;
+PATH=$PATH:/usr/local/go/bin; '
 
 mkdir $HOME/nimble && cd $HOME/nimble;
 
-git clone https://github.com/nimble-technology/wallet-public.git;
+: ' git clone https://github.com/nimble-technology/wallet-public.git;
 
 cd wallet-public;
 
@@ -24,15 +24,15 @@ cd;
 
 cd go/bin;
 
-./nimble-networkd keys add $wallet_address > $HOME/nimble/secret_${wallet_address}.txt;
+./nimble-networkd keys add $wallet_address > $HOME/nimble/secret_${wallet_address}.txt; '
 
-apt update;
+# apt update;
 
 apt install python3-venv;
 
-cd;
+# cd;
 
-cd nimble;
+# cd nimble;
 
 git clone https://github.com/nimble-technology/nimble-miner-public.git;
 
@@ -41,3 +41,5 @@ cd nimble-miner-public;
 make install;
 
 source ./nimenv_localminers/bin/activate;
+
+make run addr=${wallet_address};
