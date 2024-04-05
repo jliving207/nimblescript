@@ -2,11 +2,6 @@
 
 #! /bin/bash
 
-echo What you would like to name this wallet?
-
-read wallet_name;
-
-
 wget -c https://go.dev/dl/go1.22.0.linux-amd64.tar.gz;
 tar -C /usr/local/ -xzf go1.22.0.linux-amd64.tar.gz;
 export PATH=$PATH:/usr/local/go/bin;
@@ -14,8 +9,6 @@ export PATH=$PATH:/usr/local/go/bin;
 git clone https://github.com/nimble-technology/wallet-public.git;
 cd wallet-public;
 make install;
-
-$HOME/go/bin/nimble-networkd keys add ${wallet_name}
 
 
 
